@@ -31,3 +31,47 @@ for(i in 1:length(py$sizes)){
   )
 }
 
+###
+py_run_file(file = "/media/philipe/5650A03850A020AB/ftrap5/ftrap5_cov.py")
+
+melt(py$sga_cm$icm, value.name = "Cov") %>%
+  ggplot(aes(x=Var1, y=Var2, fill=Cov)) +
+  geom_tile() +
+  ggtitle("sga - População inicial") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+melt(py$sga_cm$tcm, value.name = "Cov") %>%
+  ggplot(aes(x=Var1, y=Var2, fill=Cov)) +
+  geom_tile() +
+  ggtitle("sga - População intermediária") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+melt(py$sga_cm$fcm, value.name = "Cov") %>%
+  ggplot(aes(x=Var1, y=Var2, fill=Cov)) +
+  geom_tile() +
+  ggtitle("sga - População final") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+melt(py$cga_cm$icm, value.name = "Cov") %>%
+  ggplot(aes(x=Var1, y=Var2, fill=Cov)) +
+  geom_tile() +
+  ggtitle("cga - População inicial") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+melt(py$cga_cm$tcm, value.name = "Cov") %>%
+  ggplot(aes(x=Var1, y=Var2, fill=Cov)) +
+  geom_tile() +
+  ggtitle("cga - População intermediária") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+melt(py$cga_cm$fcm, value.name = "Cov") %>%
+  ggplot(aes(x=Var1, y=Var2, fill=Cov)) +
+  geom_tile() +
+  ggtitle("cga - População final") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
