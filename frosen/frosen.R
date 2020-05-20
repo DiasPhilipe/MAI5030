@@ -4,7 +4,7 @@ library(dplyr)
 library(reticulate)
 
 ###
-py_run_file(file = "/media/philipe/5650A03850A020AB/frosen/frosen.py")
+py_run_file(file = "/MAI5030/frosen/frosen.py")
 
 data.table(Geracão = 1:100, cga = unlist(py$progress_cga), sga = unlist(py$progress_sga)) %>%
   melt.data.table(id.vars = 'Geracão', variable.name = "Algorítimo", value.name = "Ajuste") %>%
@@ -13,7 +13,7 @@ data.table(Geracão = 1:100, cga = unlist(py$progress_cga), sga = unlist(py$prog
   scale_color_brewer(palette = "Set1")
 
 ###
-py_run_file(file = "/media/philipe/5650A03850A020AB/frosen/frosen_comp.py")
+py_run_file(file = "/MAI5030/frosen/frosen_comp.py")
 
 for(i in 1:length(py$sizes)){
   sga_acc = round(sum(unlist(py$fitness_sga[[i]])==py$global_fitness)/py$tests, digits = 3)*100
