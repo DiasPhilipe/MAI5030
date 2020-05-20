@@ -4,7 +4,7 @@ library(dplyr)
 library(reticulate)
 
 ###
-py_run_file(file = "/media/philipe/5650A03850A020AB/onemax.py")
+py_run_file(file = "./onemax.py")
 
 data.table(Geracão = 1:100, cga = py$progress_cga, sga = py$progress_sga) %>%
   melt.data.table(id.vars = 'Geracão', variable.name = "Algorítimo", value.name = "Ajuste") %>%
@@ -13,7 +13,7 @@ data.table(Geracão = 1:100, cga = py$progress_cga, sga = py$progress_sga) %>%
   scale_color_brewer(palette = "Set1")
 
 ###
-py_run_file(file = "/media/philipe/5650A03850A020AB/onemax_comp.py")
+py_run_file(file = "./onemax_comp.py")
 
 for(i in 1:length(py$sizes)){
   sga_acc = round(sum(py$fitness_sga[[i]]==py$global_fitness)/py$tests, digits = 3)*100
